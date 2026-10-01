@@ -1,0 +1,27 @@
+{
+  "name": "wb-chat-api",
+  "version": "1.0.0",
+  "description": "API for chat applications",
+  "license": "ISC",
+  "author": "abazyshyn",
+  "main": "dist/index.js",
+  "scripts": {},
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.3",
+    "@typescript-eslint/eslint-plugin": "^8.71.0",
+    "eslint": "^10.11.0",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.9",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.71.0"
+  }
+}
