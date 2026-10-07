@@ -1,21 +1,111 @@
+# ==============================================================================
+# Node.js
+# ==============================================================================
+
 node_modules/
-
 dist/
-
 coverage/
 
-logs
+# Logs
+logs/
 *.log
 
+# TypeScript
 *.tsbuildinfo
+
+# ESLint
 .eslintcache
 
+# Environment
 .env
 .env.prod
-.env.test
+.env.debug
 
+# Package managers
 yarn.lock
 
+# Husky
 .husky/_
+
+
+# ==============================================================================
+# C++
+# ==============================================================================
+
+# Build output
+**/bin/
+bin-int/
+Intermediates/
+build*/
+
+# Debug / compiler artifacts
+*.idb
+*.pdb
+
+# Dependency / package artifacts
+/packages/rpm/doxygen.spec
+
+# Editor / temporary files
+*~
+.*sw?
+\#*
+*.rej
+*.orig
+
+# Generated documentation
+/doxygen_docs
+/doxygen.tag
+/qtools_docs
+
+# Generated files
+/warnings.log
+tags
+.cache/
+
+
+# ==============================================================================
+# CMake
+# ==============================================================================
+
+.cmake/
+CMakeLists.txt.user
+
+CMakeCache.txt
+CMakeFiles/
+CMakeDoxyfile.in
+CMakeDoxygenDefaults.cmake
+CMakeScripts/
+Testing/
+Makefile
+cmake_install.cmake
+cmake_uninstall.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+
+# CMake / Ninja
+CMakeUserPresets.json
+.ninja_deps
+.ninja_log
+
+
+# ==============================================================================
+# GoogleTest
+# ==============================================================================
+
+/lib
+
+
+# ==============================================================================
+# Qt / qmake
+# ==============================================================================
+
+*.pro
+
+
+# ==============================================================================
+# macOS
+# ==============================================================================
 
 .DS_Store
