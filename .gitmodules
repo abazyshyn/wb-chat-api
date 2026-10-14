@@ -1,0 +1,3 @@
+[submodule "api-gateway/vendor/boost"]
+	path = api-gateway/vendor/boost
+	url = git@github.com:boostorg/boost.git
