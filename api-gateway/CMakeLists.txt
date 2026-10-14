@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(api-gateway VERSION 1.0 LANGUAGES C CXX)
+project(api_gateway VERSION 1.0 LANGUAGES C CXX)
 cmake_policy(SET CMP0072 NEW)
 
 # ==============================================================================
@@ -26,6 +26,18 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
 )
 
+
+# ==============================================================================
+# Properties
+# ==============================================================================
+set(API_GATEWAY_OUTPUT_DIR
+    "${PROJECT_SOURCE_DIR}/bin/${CMAKE_SYSTEM_NAME}_${CMAKE_HOST_SYSTEM_PROCESSOR}/${PROJECT_NAME}/$<CONFIG>"
+)
+
+set_target_properties("${PROJECT_NAME}"
+    PROPERTIES RUNTIME_OUTPUT_DIRECTORY
+    "${API_GATEWAY_OUTPUT_DIR}"
+)
 
 # ==============================================================================
 # Dependencies
