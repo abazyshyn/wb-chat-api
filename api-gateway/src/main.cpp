@@ -1,11 +1,9 @@
-#include <boost/asio.hpp>
-#include <boost/beast.hpp>
-#include <iostream>
+#include "server/server.h"
 
 int main()
 {
-    boost::asio::io_context io;
-    std::cout << "Hello world!" << std::endl;
+    HTTP::Server::CServer Server("127.0.0.1", "8080");
+    Server.Run();
 
-    return 0;
+    return EXIT_SUCCESS;
 }
