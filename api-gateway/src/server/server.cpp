@@ -1,4 +1,5 @@
 #include "server.h"
+#include <iostream>
 
 namespace HTTP
 {
@@ -16,13 +17,28 @@ namespace HTTP
         {
             boost::asio::ip::tcp::socket socket(m_ioContext);
             m_acceptor.accept(socket);
-            const std::string response =
-                "HTTP/1.1 200 OK\r\n"
-                "Content-Length: 5\r\n"
-                "Connection: close\r\n"
-                "\r\n"
-                "Hello";
-            boost::asio::write(socket, boost::asio::buffer(response));
+
+            boost::beast::flat_buffer buffer;
+            boost::beast::http::request<boost::beast::http::string_body> request;
+            boost::system::error_code errorCode;
+            boost::beast::http::read(socket, buffer, request, errorCode);
+
+            if (errorCode)
+            {
+                std::cerr << "Failed to read HTTP request: "
+                          << errorCode.message() << '\n';
+                return;
+            }
+
+            std::cout << "Method: " << request.method_string() << std::endl;
+            std::cout << "Target: " << request.target() << std::endl;
+            std::cout << "Version: " << request.version() << std::endl;
+
+            for (const auto &header : request.base())
+            {
+                std::cout << header.name_string() << ": " << header.value() << '\n';
+            }
+            std::cout << std::flush;
         }
 
         void CServer::Init(const std::string &address, const std::string &port)
